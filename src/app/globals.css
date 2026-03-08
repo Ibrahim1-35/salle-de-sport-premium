@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #07070a;
+  --panel: rgba(255, 255, 255, 0.04);
+  --panel-strong: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.1);
+  --text: #ffffff;
+  --muted: #a1a1aa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 22%),
+    linear-gradient(180deg, #07070a 0%, #0a0a10 100%);
+  color: var(--text);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app-main {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+}
+
+.app-bg-gradient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,0.045), transparent 20%),
+    radial-gradient(circle at 85% 10%, rgba(255,255,255,0.04), transparent 18%),
+    radial-gradient(circle at 50% 100%, rgba(255,255,255,0.03), transparent 28%);
+}
+
+.app-bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 95%);
+}
+
+.app-noise {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='1'/></svg>");
+}
+
+::selection {
+  background: rgba(255,255,255,0.16);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.12);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+/* Utilitaires premium */
+.premium-panel {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.02) inset,
+    0 10px 40px rgba(0,0,0,0.28);
+  backdrop-filter: blur(14px);
+}
+
+.premium-panel-strong {
+  border: 1px solid var(--line);
+  background: var(--panel-strong);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.03) inset,
+    0 16px 48px rgba(0,0,0,0.34);
+  backdrop-filter: blur(18px);
+}
+
+.premium-button {
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08);
+  transition: 180ms ease;
+}
+
+.premium-button:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.16);
+}
+
+.premium-input {
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  color: white;
+  outline: none;
+  transition: 180ms ease;
+}
+
+.premium-input:focus {
+  border-color: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.04);
+}
+
+.premium-muted {
+  color: var(--muted);
+}
